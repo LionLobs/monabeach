@@ -5,27 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mona Fashion • Desfile Exclusivo</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --verde:#0f2a27;
-  --verde-textura:#123632;
-  --areia:#f2efe9;
+  --verde-escuro:#0b1f1d;
+  --areia:#f3efe9;
   --dourado:#c9a76d;
-  --texto:#2b2b2b;
+  --branco:#ffffff;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Montserrat', sans-serif;
-  background:var(--areia);
-  color:var(--texto);
+  background:var(--verde);
+  color:#fff;
 }
 
 /* HEADER */
@@ -33,15 +29,14 @@ header{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(15,42,39,0.95);
-  backdrop-filter: blur(6px);
+  background:linear-gradient(180deg,rgba(15,42,39,.95),rgba(15,42,39,.85));
   z-index:1000;
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
-  padding:16px 30px;
+  padding:18px 24px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -49,172 +44,130 @@ header{
 
 .logo{
   font-family:'Playfair Display', serif;
-  font-size:30px;
-  letter-spacing:2px;
-  color:#fff;
+  font-size:28px;
+  letter-spacing:3px;
 }
 
 .menu a{
   color:#fff;
   text-decoration:none;
-  margin-left:30px;
+  margin-left:26px;
   font-size:14px;
 }
 
-.menu .btn{
+.menu .cta{
   background:var(--dourado);
   color:#000;
-  padding:8px 20px;
+  padding:8px 22px;
   border-radius:30px;
 }
 
 /* HERO */
 .hero{
-  height:100vh;
-  background:
-    linear-gradient(rgba(15,42,39,.35),rgba(15,42,39,.55)),
-    url("https://images.unsplash.com/photo-1520975922284-5f7f3c1d97d4?auto=format&fit=crop&w=1800&q=80");
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-}
-
-.hero-content{
+  margin-top:80px;
   max-width:1200px;
-  margin:auto;
-  padding:0 30px;
-  color:#fff;
+  margin-inline:auto;
+  padding:0 20px;
 }
 
-.hero h1{
-  font-family:'Playfair Display', serif;
-  font-size:60px;
-  max-width:620px;
-}
-
-.hero p{
-  margin:18px 0 30px;
-  max-width:520px;
-}
-
-.hero .btn-main{
-  background:var(--dourado);
-  color:#000;
-  padding:14px 34px;
-  border-radius:40px;
-  text-decoration:none;
-}
-
-/* FAIXA */
-.faixa{
-  background:var(--verde);
-  padding:50px 20px;
-  text-align:center;
-  color:#fff;
-  font-family:'Playfair Display', serif;
-  font-size:26px;
-}
-
-/* BLOCO INFO */
-.info{
-  max-width:1200px;
-  margin:auto;
-  padding:90px 30px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.info img{
+.hero-img{
   width:100%;
-  border-radius:18px;
+  aspect-ratio:16/10;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
 }
 
-.info h2{
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.55));
+}
+
+.hero-text{
+  position:absolute;
+  bottom:28px;
+  left:28px;
+  max-width:80%;
+}
+
+.hero-text h1{
   font-family:'Playfair Display', serif;
-  font-size:36px;
-  margin-bottom:20px;
+  font-size:42px;
+  margin-bottom:8px;
 }
 
-.info ul{
-  margin-top:15px;
+.hero-text p{
+  font-size:15px;
+  opacity:.9;
 }
 
-.info li{
-  margin-bottom:10px;
+/* SECTION */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 24px;
+}
+
+.section-title{
+  font-family:'Playfair Display', serif;
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.section-sub{
+  opacity:.85;
+  margin-bottom:36px;
 }
 
 /* GALERIA */
-.galeria{
-  background:var(--verde-textura);
-  padding:90px 30px;
-}
-
-.galeria h2{
-  text-align:center;
-  font-family:'Playfair Display', serif;
-  color:#fff;
-  margin-bottom:10px;
-}
-
-.galeria p{
-  text-align:center;
-  color:#ddd;
-  margin-bottom:40px;
-}
-
-.grid{
-  max-width:1200px;
-  margin:auto;
+.gallery{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:20px;
 }
 
-.grid img{
+.gallery img{
   width:100%;
   height:260px;
   object-fit:cover;
-  border-radius:16px;
+  border-radius:18px;
 }
 
-.galeria .btn-center{
-  margin-top:40px;
+/* CTA */
+.cta-box{
   text-align:center;
+  padding:60px 20px;
 }
 
-.galeria a{
+.cta-box a{
   background:var(--dourado);
   color:#000;
-  padding:12px 30px;
-  border-radius:30px;
+  padding:14px 36px;
+  border-radius:40px;
   text-decoration:none;
+  font-weight:500;
 }
 
 /* FOOTER */
 footer{
-  background:#0a1f1d;
-  color:#aaa;
+  background:var(--verde-escuro);
   text-align:center;
-  padding:50px 20px;
+  padding:40px 20px;
   font-size:13px;
+  opacity:.7;
 }
 
-/* RESPONSIVO */
-@media(max-width:900px){
-  .info{
-    grid-template-columns:1fr;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:44px;
-  }
+/* MOBILE */
+@media(max-width:600px){
+  .hero-text h1{font-size:30px;}
 }
 </style>
 </head>
@@ -228,53 +181,39 @@ footer{
       <a href="#">Evento</a>
       <a href="#">Desfile</a>
       <a href="#">Galeria</a>
-      <a href="#" class="btn">Convites</a>
+      <a href="#" class="cta">Convites</a>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Bem-vindo ao Mona Fashion</h1>
-    <p>Experiência exclusiva de moda, elegância e sofisticação em um desfile único.</p>
-    <a href="#" class="btn-main">Reservar Convite</a>
+<div class="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=80">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1>Bem-vindo ao Mona Fashion</h1>
+      <p>Desfile de moda exclusivo, elegância e experiência premium.</p>
+    </div>
   </div>
-</section>
+</div>
 
-<section class="faixa">
-  Desfile de moda, experiências sensoriais e convidados exclusivos
-</section>
+<section>
+  <h2 class="section-title">Eventos Exclusivos</h2>
+  <p class="section-sub">Moda, lifestyle e experiências inesquecíveis.</p>
 
-<section class="info">
-  <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80">
-  <div>
-    <h2>Evento Exclusivo</h2>
-    <p>Aberto para convidados selecionados.</p>
-    <ul>
-      <li>• Desfile de moda autoral</li>
-      <li>• Ambientação premium</li>
-      <li>• Experiência fashion & lifestyle</li>
-    </ul>
-  </div>
-</section>
-
-<section class="galeria">
-  <h2>Eventos Exclusivos</h2>
-  <p>Momentos marcantes, experiências inesquecíveis.</p>
-
-  <div class="grid">
+  <div class="gallery">
     <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80">
     <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80">
     <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=900&q=80">
   </div>
-
-  <div class="btn-center">
-    <a href="#">Ver Galeria</a>
-  </div>
 </section>
 
+<div class="cta-box">
+  <a href="#">Ver Galeria</a>
+</div>
+
 <footer>
-  © 2026 • MONA FASHION • Evento de Moda Exclusivo
+  © 2026 · MONA FASHION · Evento de Moda Exclusivo
 </footer>
 
 </body>
